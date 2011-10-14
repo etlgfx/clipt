@@ -21,9 +21,8 @@ handle = clipt.Clipt(sqlite.SqliteWriter(configuration.config['local']['database
 
 if args.command == 'list':
     print('Snippets:')
-    print(handle.list())
     for snippet in handle.list():
-        print('    ' + snippet)
+        print('    ' + snippet[0])
 
 elif args.command == 'read':
     value = handle.read(args.key)
