@@ -24,3 +24,6 @@ clean :
 	find . -name '*.pyc' -print0 | xargs -0 rm -rf
 	rm -rf output/ reports/
 	rm -f .coverage
+
+config-clean : clean
+	rm -rf ~/.clipt
