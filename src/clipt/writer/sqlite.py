@@ -10,7 +10,8 @@ class SqliteWriter:
 
     def write(self, key, value):
         sql = 'INSERT INTO clips (key, value) VALUES (?, ?)'
-        self._db.execute(sql, (key, value))
+        self._db.execute(sql, (key, value,))
+        self._db.commit()
 
     def read(self, key):
         sql = "SELECT value FROM clips WHERE key = ?"
