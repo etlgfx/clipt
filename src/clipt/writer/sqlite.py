@@ -6,11 +6,11 @@ class SqliteWriter:
         self._db = sqlite3.connect(db_path)
 
         self._db.execute('''CREATE TABLE IF NOT EXISTS clips
-        (key text, value text)''')
+        (key text PRIMARY KEY COLLATE NOCASE, value text)''')
 
     def write(self, key, value):
-        sql = 'INSERT INTO clips (key, value) VALUES (?, ?)'
-        self._db.execute(sql, (key, value,))
+        sql = 'INSERT OR REPLACE INTO clips (key, value) VALUES (?, ?)'
+        self._db.execute(sql, (key, value))
         self._db.commit()
 
     def read(self, key):
