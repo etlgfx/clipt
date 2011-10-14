@@ -38,4 +38,5 @@ __TODO__
 * Remote storage implementation
 * Local sqllite implementation
 * Command syntax
-* Tab completion 
+* Tab completion
+* Tagging for snippets
